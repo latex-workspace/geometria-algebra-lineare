@@ -1,8 +1,13 @@
-\documentclass[12pt,a4paper,oneside]{article}
-%\begin{document}
+%&../.preamble
 
-\input{../.preamble.tex}
+\endofdump
+
 \usepackage{nicematrix}
+
+\usetikzlibrary{external}
+\tikzset{external/system call={pdflatex --shell-escape --fmt=../.preamble --halt-on-error -jobname "\image" "\endofdump\texsource"}}
+\tikzexternalize[prefix=tikz/]
+
 \title{Geometria e algebra lineare}
 \author{Mattia Marini}
 \date{14.09.22}
@@ -26,21 +31,27 @@ Prendo due punti A,B. Il vettore $\vec{AB} = \left( x_B - x_A, y_B - y_A \right)
 \subsubsection*{Vettore geometrico nello spazio}\phantom{a}
 
 Prendo due punti A,B. Il vettore $\vec{AB} = \left( x_B - x_A, y_B - y_A, z_B - z_A \right)  \in \R^2$
-\textbox{NB: $\vec{{AB}} = \vec{{CD}} $ se e solo se A,B,C,D sono i vertici di un parallelogramma
-}
+
+\begin{center}
+	\tcbox{NB: $\vec{{AB}} = \vec{{CD}} $ se e solo se A,B,C,D sono i vertici di un parallelogramma}
+\end{center}
+
 \subsection{Somma e prodotto per scalare}
-\definizione{Somma vettori}{
+
+\begin{definizione}{Somma vettori}
 	Dati due vettori di componenti $\left( a_1, a_2 \right), \left( b_1,b_2 \right) $ la loro somma è definita come somma delle loro componenti:
 	\[
 		\left( a_1, a_2 \right), \left( b_1,b_2 \right) = \left( a_1+b_1, a_2+b_2 \right)
 	\]
-}
-\definizione{Prodotto per scalare}{
+\end{definizione}
+
+\begin{definizione}{Prodotto per scalare}
 	Dato un vettore di componenti $\left( a_1, a_2 \right)$ e uno scalare $k$ il prodotto scalare è definito nel seguente modo:
 	\[
 		k\left( a_1,a_2 \right) = \left( ka_1, ka_2 \right)
 	\]
-}
+\end{definizione}
+
 La stessa cosa vale per vettori in $\R^{3}$
 
 \subsubsection*{Interpretazione grafica somma vettori}
@@ -63,7 +74,10 @@ Allo stesso, il \underline{prodotto vettoriale} si può interpretare graficament
 	\R^{3} = \left\{ \left( a_1,a_2,a_3 \right) | a_1,a_2,a_3  \in \R \right\}
 \]
 
-\textbox{NB: $\vec{{AB}} + \vec{BC} = \vec{AC}$ (regola del punta coda)}
+\begin{center}
+	\tcbox{{NB: $\vec{{AB}} + \vec{BC} = \vec{AC}$ (regola del punta coda)}}
+\end{center}
+
 \subsubsection*{Proprietà somma vettori}
 \label{sub:proprietàsommavettori}
 \begin{itemize}
@@ -73,7 +87,10 @@ Allo stesso, il \underline{prodotto vettoriale} si può interpretare graficament
 	\item Proprietà commutativa
 	      i
 \end{itemize}
-\textbox{Posso riassumere queste proprietà affermando che $V^2$ è un \textbf{gruppo commutativo}}
+
+\begin{center}
+	\tcbox{Posso riassumere queste proprietà affermando che $V^2$ è un \textbf{gruppo commutativo} }
+\end{center}
 
 \section{Rette e piani}
 \subsection{Rette}
@@ -85,7 +102,10 @@ L'equazione di una retta può essere ricavata immaginandosi di prendere un vetto
 		z = z_1 + t\left( z_2-z_1 \right)
 	\end{cases}
 \]
-\textbox{NB: se semplifico sistema che ottengo esplicitando coordinata x y e z eliminando t ottengo l'equazione di due piani la cui intersezione e la retta}
+\begin{tcolorbox}
+	NB: se semplifico sistema che ottengo esplicitando coordinata x y e z eliminando t ottengo l'equazione di due piani la cui intersezione e la retta
+\end{tcolorbox}
+
 \subsection{Piani}
 L'equazione di un piano può essere ricavata immaginandosi di prendere due vettori, allineare il punto di applicazione (metterli culo a culo), ed eseguire la combinazione lineare di questi ( $sv_1 + sv_2$) in modo da ottenere il luogo dei punti definito da un piano. Ottengo la seguente equazione parametrica:
 \[
@@ -99,7 +119,9 @@ Eliminando la $s$ e la $t$ posso ottenere la forma cartesiana, ad esempio:
 \[
 	2x - y + 5z - 4 =0
 \]
-\textbox{NB: il vettore di coordinate $2,-1,5$ definize la direzione perpendicolare al piano}
+\begin{center}
+	\tcbox{NB: il vettore di coordinate $2,-1,5$ definize la direzione perpendicolare al piano}
+\end{center}
 
 \subsection{Lunghezza del vettore}
 \label{sec:lunghezzadelvettore}
@@ -173,12 +195,12 @@ Il prodotto vettoriale fra due vettori $\vec{v}$ e $\vec{w}$ è uguale all'area 
 	                                                                & = \left( v_{1}w_2- v_{2}w_1 \right) ^2
 \end{align*}
 Posso definire quindi il prodotto vettoriale:
-\definizione{Prodotto vettoriale}{
+\begin{definizione}{Prodotto vettoriale}
 	Il prodotto scalare fra due vettori $\vec{v}$ e $\vec{w}$ è uguale all'area del paralelogramma definito da questi ultimi e si può esprimere nel seguente modo:
 	\[
 		\vec{v} \times \vec{w} = \left|v\right|\left|w\right| \sin \theta = \left( v_2w_3 - v_3w_2, v_3w_1-v_1w_3, v_1w_2-v_2w_1 \right)
 	\]
-}
+\end{definizione}
 
 \begin{itemize}
 	\item $\vec{w} \times \vec{v} = - \vec{v} \times \vec{w}$
@@ -190,7 +212,7 @@ Posso definire quindi il prodotto vettoriale:
 
 
 \section{Gruppi}
-\definizione{Gruppo}{Un gruppo è un insieme $G$ su cui è definita un'operazione $*$  \[
+\begin{definizione}{Gruppo}Un gruppo è un insieme $G$ su cui è definita un'operazione $*$  \[
 		* : G \times G \rightarrow G
 	\]
 	Tale operazione deve soddisfare 3 specifiche:
@@ -202,7 +224,7 @@ Posso definire quindi il prodotto vettoriale:
 	Inoltre, il gruppo si dice \textbf{ commutativo} se:  \[
 		a * b = b * a \quad \forall a, b  \in  G
 	\]
-}
+\end{definizione}
 
 \subsection{Esempi}
 \label{sub:esempi}
@@ -226,18 +248,21 @@ Posso definire quindi il prodotto vettoriale:
 	\item $\left( R^* = R \setminus \left\{ 0 \right\}, \times \right) $ \rarr è gruppo commutativo (i razionali meno lo zero)
 	\item $\left( C^* = C \setminus \left\{ 0 \right\}, \times \right) $ \rarr è gruppo commutativo (i razionali meno lo zero)
 \end{itemize}
-\bigbox{$K =  \Q, \R , \C$ sono detti \textbf{campi} nei quali vale la proprietà distributiva: \[
-		a\left( b+c \right) = ab + ac \quad \forall a,b,c  \in K
-	\] }
 
-\definizione{Campi}{
+\begin{tcolorbox}
+	$K =  \Q, \R , \C$ sono detti \textbf{campi} nei quali vale la proprietà distributiva: \[
+		a\left( b+c \right) = ab + ac \quad \forall a,b,c  \in K
+	\]
+\end{tcolorbox}
+
+\begin{definizione}{Campi}
 	Un campo è un insieme $ \mathbb{K} $ su cui sono definite due operazioni $ + $ e $\times$ tali che :
 	\begin{itemize}
 		\item $\left( \mathbb{K}, + \right) $ è un gruppo commutativo
 		\item $ \mathbb{K} ^{*} = K \setminus \left\{ 0 \right\} , \left( \mathbb{K} ^{*}, \times \right) $ è un gruppo commutativo
 		\item Vale la proprietà distributiva: $ a \times \left( b+c \right) = a \times b + a\times c \quad \forall a,b,c \in  \mathbb{k}$
 	\end{itemize}
-}
+\end{definizione}
 
 \section{n-uple}
 \[
@@ -255,7 +280,7 @@ NB: è gruppo commutativo in quanto l'addizione e il prodotto sono definite come
 
 \section{Matrici}
 
-\definizione{Matrice}{
+\begin{definizione}{Matrice}
 	Una matrice A del tipo $m \times n$ è una tabella di m file e n colonne
 	\[
 		\begin{bmatrix}
@@ -264,7 +289,7 @@ NB: è gruppo commutativo in quanto l'addizione e il prodotto sono definite come
 			a_{m1} & \ldots & a_{mn}
 		\end{bmatrix}
 	\]
-}
+\end{definizione}
 Una matrice si può scrivere in versione compatta
 \[
 	A= \begin{bmatrix} a_{ij} \end{bmatrix}
@@ -348,8 +373,13 @@ Esempio:
 		4x_1 + 6x_2 + 8x_3 = 24
 	\end{cases}
 \]
-\textbox{Questo è un sistema lineare in quanto non comapiono cose tipo $ x^2$ o $ \ln \left( x \right) $}
-\bigbox{Posso rappresentare sistema tramite matrice di coefficienti:
+
+\begin{center}
+	\tcbox{Questo è un sistema lineare in quanto non comapiono cose tipo $ x^2$ o $ \ln \left( x \right) $}
+\end{center}
+
+\begin{tcolorbox}
+	Posso rappresentare sistema tramite matrice di coefficienti:
 	\[ A=
 		\begin{bmatrix}
 			1 & 1 & 1 \\
@@ -362,7 +392,8 @@ Esempio:
 	\[
 		Ax = b
 	\]
-}
+
+\end{tcolorbox}
 
 \subsection{Proprietà}
 \begin{itemize}
@@ -426,10 +457,10 @@ Esempio:
 	      La matrice è tutta uguale a zero a parte lungo la diagonale: $I_n=\left[\delta_{i j}\right]$, con $\delta_{i j}=0$ per $i \neq j, \delta_{i j}=1$ per $i=j$. Se $A$ è una matrice conformabile con $I_n$, a destra o a sinistra, si ha $A I_n=A$ (oppure $I_n A=A$ ).
 \end{itemize}
 
-\definizione{Matrici invertibili}{Sia $ A  \in  M_n \left( \R \right) $ si dice \underline{ invertibile}  se $ \exists B  \in  M_n \left( \R \right)  \text{ t.c. }$ \[
+\begin{definizione}{Matrici invertibili}Sia $ A  \in  M_n \left( \R \right) $ si dice \underline{ invertibile}  se $ \exists B  \in  M_n \left( \R \right)  \text{ t.c. }$ \[
 		AB = BA = I_n
 	\]
-	Se esiste, B \underline{è unica} e viene detta \underline{matrice inversa} di A e viene definita con $ A ^{ -1}$}
+	Se esiste, B \underline{è unica} e viene detta \underline{matrice inversa} di A e viene definita con $ A ^{ -1}$\end{definizione}
 OSS. Il prodotto di matrici invertibili è invertibile
 \[
 	\left( AB \right) \left( B^{-1}A^{-1} \right) = A \left( B B ^{-1}  \right) A^{-1} = A I_n A^{-1} = A A ^{-1} = I_n
@@ -446,21 +477,25 @@ Le matrici invertibili formano un gruppo in quanto:
 		      \item Ogni matrice ha il suo simmetrico (radice inversa)
 	      \end{itemize}
 \end{itemize}
-\definizione{Potenze}{Sia $A$ una radice $m \times n$ la \underline{potenza k-esima } di A è la radice
-\[
-	A^{k} = \underbrace{A \cdot A \cdot A \ldots A}_{\text{k volte}}
-\] }
+\begin{definizione}{Potenze}Sia $A$ una radice $m \times n$ la \underline{potenza k-esima } di A è la radice
+	\[
+		A^{k} = \underbrace{A \cdot A \cdot A \ldots A}_{\text{k volte}}
+	\] \end{definizione}
 NB: \[
 	A^{i}A^{j} = A^{i+j} = A^{j}A^{i}
 \]
-\definizione{Matrice trasposta}{Si dice \underline{matrice trasposta} di $A \quad m \times n$ e si indica con $ A ^{ T}$ la matrice \[
+\begin{definizione}{Matrice trasposta}
+	Si dice \underline{matrice trasposta} di $A \quad m \times n$ e si indica con $ A ^{ T}$ la matrice \[
 		A^{T}= \left[ a_{ji} \right] \quad n \times m
 	\]
-	ossia inverto righe e colonne}
+	ossia inverto righe e colonne
+\end{definizione}
 OSS: \[
 	\left( AB \right) ^{T} = B ^{T}A^{T}
 \]
-\definizione{Matrice simmetrica}{Se $A = A^{T} \rightarrow n = m$ A è detta simmetrica, ossia è speculare rispetto alla diagonale }
+\begin{definizione}{Matrice simmetrica}
+	Se $A = A^{T} \rightarrow n = m$ A è detta simmetrica, ossia è speculare rispetto alla diagonale
+\end{definizione}
 \section{Sistemi e matrici}
 \label{sec:sistemiematrici}
 
@@ -476,12 +511,21 @@ Dato il sistema
 	x_1 \begin{bmatrix} 1\\1\\3 \end{bmatrix}  + x_2 \begin{bmatrix} 1\\2\\6 \end{bmatrix} + x_3\begin{bmatrix} 1\\5\\8 \end{bmatrix} = \begin{bmatrix} 4\\11\\24 \end{bmatrix}= b
 \]
 OSS: il sistema è risolubile se e solo se il vettore b è combinazione lineare delle colonne di A
-\definizione{Combinazione lineare per matrici}{Date $A_1, \ldots , A_k$ matrici $m\times n$ e dati k scalari $c_1, .., c_k  \in  \R$ la \underline{ combinazione lineare }di $A_1, \ldots , A_k$ con $c_1, .., c_k$ è la matrice \[
+\begin{definizione}{Combinazione lineare per matrici}
+	Date $A_1, \ldots , A_k$ matrici $m\times n$ e dati k scalari $c_1, .., c_k  \in  \R$ la \underline{ combinazione lineare }di $A_1, \ldots , A_k$ con $c_1, .., c_k$ è la matrice \[
 		c_1A_1 + c_2 A_2 \ldots + c_k A_k \quad  m\times n
-	\] }
+	\]
+\end{definizione}
+
 \subsection{Matrici e grafi}
-\definizione{Matrice di adiacenza}{Dato un grafo $ \left( V, E \right) $ la sua \underline{ matrice di adiacenza} A è la matrice $ m\times n $ (n numero di vertici) con elemento $a_{ij}=$ numero di lati dal vertice $V_i$ al vertice $V_j$}
-\teorema{Numero cammini in grafo}{L'elemento di posto $ \left( i, j  \right) $ nella matrice $ A ^{ S}$ è il numero di \underline{cammini di lungheza S} che iniziano in $ V_i $ e terminano in $ V_j$}
+
+\begin{definizione}{Matrice di adiacenza}
+	Dato un grafo $ \left( V, E \right) $ la sua \underline{ matrice di adiacenza} A è la matrice $ m\times n $ (n numero di vertici) con elemto $a_{ij}=$ numero di lati dal vertice $V_i$ al vertice $V_j$
+\end{definizione}
+
+\begin{teorema}{Numero cammini in grafo}
+	L'elemento di posto $ \left( i, j  \right) $ nella matrice $ A ^{ S}$ è il numero di \underline{cammini di lungheza S} che iniziano in $ V_i $ e terminano in $ V_j$
+\end{teorema}
 Spiegazione:
 \begin{itemize}
 	\item Penso a caso base in cui $S=2$ e faccio prodotto matriciale
@@ -539,9 +583,12 @@ Spiegazione:
 	\item Effettuando il prodotto matriciale per $A$ ancora una volta eseguo una \underline{procedura ricorsiva}
 \end{itemize}
 
-\definizione{prodotto scalare n-uple}{Il \underline{prodotto scalare} di due n-uple $x,y  \in  \R^{n}$ è il \underline{numero reale} è uguale a: \[
+\begin{definizione}{prodotto scalare n-uple}
+	Il \underline{prodotto scalare} di due n-uple $x,y  \in  \R^{n}$ è il \underline{numero reale} è uguale a: \[
 		x \cdot y = \sum_{k=1}^{n} x_iy_i
-	\] }
+	\]
+\end{definizione}
+
 Proprietà:
 \begin{itemize}
 	\item Simmetrico \quad $x\cdot y = y \cdot x$
@@ -555,28 +602,38 @@ Proprietà:
 	\item Positivo \quad $ x \cdot x \ge 0$
 \end{itemize}
 
-\definizione{Norma di n-ulpa}{La lunghezza \underline{ o norma} di una n-upla $ x  \in \R ^{n}$ è \[
+\begin{definizione}{Norma di n-ulpa}
+	La lunghezza \underline{ o norma} di una n-upla $ x  \in \R ^{n}$ è \[
 		\|x\|= \sqrt{x \cdot x} \ge 0
 	\]
-}
-\definizione{Distanza fra n-uple}{la distanza fra $x$ e $y$ in $ \R ^{n}$ è \[
+\end{definizione}
+
+\begin{definizione}{Distanza fra n-uple}
+	La distanza fra $x$ e $y$ in $ \R ^{n}$ è \[
 		d\left( x, y  \right) = \left|\left|x-y\right|\right|
-	\] }
+	\]
+\end{definizione}
+
 OSS: ogni nupla può essere normalizzata, facendola diventare un versore: \[
 	x' = \frac{x}{\left|\left|x\right|\right|}
 \]
-\definizione{Ortogonalità n-uple}{Due n-uple $ x, y  \in  R^{ n}$ si dicono \underline{ortogonali } se $ x \cdot y =0$}
+\begin{definizione}{Ortogonalità n-uple}
+	Due n-uple $ x, y  \in  R^{ n}$ si dicono \underline{ortogonali} se $ x \cdot y =0$
+\end{definizione}
 Osservando la seguente figura cerco di ricavare la lunghezza di $cy$
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\input{Images/Proiezione ortogonale.pdf_tex}
 	\caption{Proiezione ortogonale di un vettore}
 \end{figure}
 
-\definizione{Proiezione ortogonale}{La proiezione ortogonale del segmento $x$ su $y$ è:
+\begin{definizione}{Proiezione ortogonale}
+	La proiezione ortogonale del segmento $x$ su $y$ è:
 	\[
 		pr_y\left( x \right) = \frac{x \cdot y}{\|y\|^2} y
-	\] }
+	\]
+\end{definizione}
+
 \subsection{Disuguaglianza di Cauchy- Schwarz}
 \[
 	\forall x, y  \in  \R ^{n} \quad \left|x \cdot y \right| \le \|x\| \| y\|
@@ -592,10 +649,12 @@ Per Cauchy-Schwarz, se $ x, y  \in  \R ^{ n} \quad  x \neq 0 , y \neq 0$
 \[
 	\left|\frac{x \cdot y}{\|x\|\| y\|}\right|  \in  \left[ 0,1 \right]
 \]
-\definizione{Angolo }{L'angolo convesso tra x e $ y$ (non nulli in $\R ^{n}$ ) è \[
+\begin{definizione}{Angolo}
+	Angolo convesso tra x e $ y$ (non nulli in $\R ^{n}$ ) è \[
 		\theta  \in  \left[ 0 , \pi \right] \rightarrow \cos\left( \theta  \right) = \frac{x \cdot y}{\|x\| \| y\|}
 	\]
-}
+\end{definizione}
+
 \subsection{Distanza tra rette sghembe}
 OSS: Fra due rette sghembe esiste un \underline{solo segmento} che sia ortogonale a entrambe le rette. La lunghezza di tale segmento costituisce la distanza fra le due rette
 \begin{itemize}
@@ -717,7 +776,11 @@ posso semplificare ulteriormente, ad esempio rendo coefficienti $x_1, x_2, x_3$ 
 	\end{bmatrix}
 \]
 ottengo una riga di zeri:
-\textbox{un sistema di \underline{tre equazioni} può essere \underline{equivalente} ad un sistema di \underline{due equazioni}}
+
+\begin{center}
+	\tcbox{un sistema di \underline{tre equazioni} può essere \underline{equivalente} ad un sistema di \underline{due equazioni}}
+\end{center}
+
 In questo caso il sistema a due equazioni ha 3 incognite e per questo avra \underline{infinite soluzioni}. Un parametro ( $x_1, x_2 ,x_3$) potrà assumere un qualsiasi valore. Questo è detto \underline{parametro libero}
 
 \subsection{Sistema impossibile}
@@ -747,7 +810,11 @@ In questo caso il sistema a due equazioni ha 3 incognite e per questo avra \unde
 		0 & 0 & 0   & -3
 	\end{bmatrix}
 \]
-\definizione{Matrice a scalini}{Una matrice generica $A \quad m \times n$ è detta \underline{a scalini} se il numero di zeri che precede il primo elemento non nullo su una riga (detto \underline{pivot}) aumenta riga per riga.}
+
+\begin{definizione}{Matrice a scalini}
+	Una matrice generica $A \quad m \times n$ è detta \underline{a scalini} se il numero di zeri che precede il primo elemento non nullo su una riga (detto \underline{pivot}) aumenta riga per riga.
+\end{definizione}
+
 NB: se ci sono file coostituite da soli zeri queste non vanno considerate:
 \[
 	\begin{bmatrix}
@@ -759,8 +826,15 @@ NB: se ci sono file coostituite da soli zeri queste non vanno considerate:
 	\end{bmatrix}
 \]
 è a scalini
-\definizione{Matrice a scalini ridotta}{Una matrice a scalini $ A \quad m \times n$ se i pivot sono uguali a 1 e sia l'unico elemento non nulla nella sua colonna. Data una matrice la sua corrispondente matrice a scalini ridotta è \underline{una e una sola}}
-\teorema{Riducibilità matrice}{Ogni matrice $m \times n$ è riducibile per righe ad una matrice a scalini}
+
+\begin{definizione}{Matrice a scalini ridotta}
+	Una matrice a scalini $ A \quad m \times n$ se i pivot sono uguali a 1 e sia l'unico elemento non nulla nella sua colonna. Data una matrice la sua corrispondente matrice a scalini ridotta è \underline{una e una sola}
+\end{definizione}
+
+\begin{teorema}{Riducibilità matrice}
+	Ogni matrice $m \times n$ è riducibile per righe ad una matrice a scalini
+\end{teorema}
+
 \textbf{Dimostrazione}
 \begin{itemize}
 	\item Se prima colonna non è nulla posso scambiare righe portando in cima quella che abbia la prima cella non nulla. Se prima colonna è nulla posso ignorarla del tutto
@@ -770,7 +844,11 @@ NB: se ci sono file coostituite da soli zeri queste non vanno considerate:
 	      \]
 	\item Ripeto operazione ricorsivamente sulla matrice piu piccola ottenua
 \end{itemize}
-\definizione{Rango di una matrice}{Il \underline{rango }di A è il numero dei \textit{pivot} di una qualsiasi matrice a scalini equivalente per righe ad A. Il rango di A è unico: ogni processo di riduzione a scalini porterà allo stesso numero di \underline{pivot}.}
+
+\begin{definizione}{Rango di una matrice}
+	Il \underline{rango }di A è il numero dei \textit{pivot} di una qualsiasi matrice a scalini equivalente per righe ad A. Il rango di A è unico: ogni processo di riduzione a scalini porterà allo stesso numero di \underline{pivot}.
+\end{definizione}
+
 NB: il numero di pivot è compreso fra 0 e il minimo fra il numero di colonne e righe:
 \[
 	0 \le rg\left( a \right) \le \text{ minimo }\left( m,n \right)
@@ -781,7 +859,9 @@ NB: un sistema è risolubile \underline{se e solo se} non ci sono pivot sull'ult
 \]
 Se $Ax = b$ è risolubile , le variabili libere corrispondono alle colonne che non conotengono i \textit{pivot}
 \section{Teorema di Rouchè-Capelli}
-\teorema{Risolubilità sistema}{Il sistema $Ax = b$ è risolubile $\Leftrightarrow$ \[
+
+\begin{teorema}{Risolubilità sistema}
+	Il sistema $Ax = b$ è risolubile $\Leftrightarrow$ \[
 		rg\left( A|b \right) =rg\left( A \right)
 	\]
 	se $rg\left( A|b \right) =rg\left( A \right) $ il sistema ha un'unica soluzione se \[
@@ -791,12 +871,15 @@ Se $Ax = b$ è risolubile , le variabili libere corrispondono alle colonne che n
 		\text{ numero parametri }= n- rg\left( A \right)
 	\]
 	ossia con $n-rg\left( A \right) $ variabili libere. Le variabili in cui ci sono pivot sono \underline{dipententi}
-}
+\end{teorema}
 
-\definizione{Nullità di una matrice}{Data una matrice $A$, il numero  \[
+\begin{definizione}{Nullità di una matrice}
+	Data una matrice $A$, il numero  \[
 		n-rg\left( A \right)
 	\]
-	viene definito \underline{nullità di una matrice}}
+	viene definito \underline{nullità di una matrice}
+\end{definizione}
+
 \subsection{Sistemi omogenei}
 Proprietà:
 \begin{itemize}
@@ -818,9 +901,13 @@ Interpretazione grafica:
 	\includegraphics{Images/Sistemi omogenei.pdf}
 	\caption{Interpretazione grafica sistemi omogenei}
 \end{figure}
-\teorema{}{Sia $Ax = b$ un sistema risolvibile. Sia y una soluzione del sistema $ y \in  Sol \left( Ax=b \right) $ detta soluzione particolare. Allora \[
+
+\begin{teorema}
+	Sia $Ax = b$ un sistema risolvibile. Sia y una soluzione del sistema $ y \in  Sol \left( Ax=b \right) $ detta soluzione particolare. Allora \[
 		Sol\left( Ax =b \right)  = \left\{ x = y + x_0 | x_0 \in  Sol\left( Ax=0 \right)  \right\}
-	\] }
+	\]
+\end{teorema}
+
 \textbf{Dimostrazione:}
 Devo dimostrare la seguente doppia implicazione, tenendo presente che $ Ay=b $:
 \[
@@ -868,12 +955,14 @@ OSS:
 	\item $D_j\left( c \right) ^{-1}= D_j\left( \frac{1}{c} \right) $
 	\item  $E_{ij}\left( c \right) ^{-1}=R_{ij}\left( -c \right) $
 \end{itemize}
-\bigbox{
+\begin{tcolorbox}
 	Posso vedere processo di riduzione gaussiana come serie di prodotti matriciali:
 	\[
 		E_k\left( \ldots \left( E_2 \left( E_1A \right)  \right)  \right) = E_k \ldots E_2 E_1 A = PA
 	\]
-}
+
+\end{tcolorbox}
+
 Sia $m=n$. Sia S = rref(A) ossia la sua matrice ridotta. Se $rg\left( A \right) = n \Rightarrow A $ è invertibile
 \begin{itemize}
 	\item $PA=S=rref\left( a \right) $
@@ -934,7 +1023,8 @@ Supponiamo di volere trovare la matrice $P$ in un solo colpo. Posso agire nel se
 		      \end{bmatrix}
 	      \]
 \end{itemize}
-\teorema{Invertibilità matrici quadrate }{
+
+\begin{teorema}{Invertibilità matrici quadrate }
 	Sia $A$ una matrice quadrata $m \times m$ invertibile.
 
 	\underline{Parte 1}: Ogni sistema $Ax = b$ ha un'unica soluzione $x = A^{-1}b$.
@@ -943,7 +1033,8 @@ Supponiamo di volere trovare la matrice $P$ in un solo colpo. Posso agire nel se
 	\[
 		A \quad  n\times n  \quad A \text{ è invertibile }  \Leftrightarrow rg\left( A \right) =n
 	\]
-}
+\end{teorema}
+
 Dimostrazione
 \begin{itemize}
 	\item \underline{Parte 1}: il sistema $Ax= b$ ha un'unica soluzione uguale a $A^{-1}b$:
@@ -1012,7 +1103,8 @@ stabiliamo se la seguente matrice è invertibile. Per quali k lo è?
 	\item In quest'ultimo caso, con $k \neq 0,1$ posso srivere la matrice in forma ridotta
 \end{itemize}
 \section{Spazi vettoriali}
-\definizione{Spazio vettoriale}{
+
+\begin{definizione}{Spazio vettoriale}
 	Uno \underline{spazio vettoriale} sul campo $\mathbb{K} $ è in insieme $V$, i cui elementi sono detti \underline{vettori}, su cui sono definite una \underline{somma} e una \underline{moltiplicazione per scalare} tali che:
 	\begin{itemize}
 		\item (V, +) è un gruppo commutativo
@@ -1030,7 +1122,8 @@ stabiliamo se la seguente matrice è invertibile. Per quali k lo è?
 			      \item $1v=v $
 		      \end{itemize}
 	\end{itemize}
-}
+\end{definizione}
+
 \textbf{Esempi:}
 \begin{itemize}
 	\item $V^2, V^3 \quad \text{ spazi vettoriali in  }\R $
@@ -1045,13 +1138,13 @@ stabiliamo se la seguente matrice è invertibile. Per quali k lo è?
 	\item $\C\left( \R \right) = \left\{ f:\R \to \R  | f \text{ continua } \right\} $ (insieme funzioni continue)
 \end{itemize}
 \subsection{Sottospazi vettoriali}
-\definizione{Sottospazio vettoriale}{
+\begin{definizione}{Sottospazio vettoriale}
 	Sia $V$ una spazio vettoriale (in $\mathbb{K}$). Sia $W \subseteq V$ un sottoinsieme non vuoto. $W$ è detto \underline{sottospazio vettoriale} di $V$ se
 	\begin{itemize}
 		\item $\forall w_1, w_2 \in W \quad w_1+w_2 \in  W$
 		\item $\forall w \in  W, \forall k \in  \mathbb{K}, \quad kw \in  W$
 	\end{itemize}
-}
+\end{definizione}
 OSS: $W$ è spazio vettoriale, rispetto alle operazioni di $V$: ogni \underline{sottospazio} vettoriale è anche uno \underline{spazio} vettoriale\\
 OSS: Ogni sottospazio contiene $0$ (vettore nullo di $V$):
 \[
@@ -1102,12 +1195,12 @@ Per Rouché-Capelli so che in numero di variabili indipendendi sono uguali a $nu
 
 \section{Basi, generatori e indipendenza lineare}
 
-\definizione{Combinazione lineare}{
+\begin{definizione}{Combinazione lineare}
 	Un vettore $v \in  V$ è \underline{combinazione lineare} dei vettore $ v_1,\ldots , v_k \in  V$ mediante i coefficienti $c_i \in  \mathbb{K}$ se
 	\[
 		v = c_1v_2+ \ldots + c_k v_k
 	\]
-}
+\end{definizione}
 Useremo il simbolo $ \left<v_1,\ldots,v_k \right>$ per indicade \underline{ogni possibile combinazione lineare} dei vettori $v_1,\ldots,v_k$
 \[
 	\left<v_1,\ldots , v_k	\right> = \left\{ c_1,v_1+\ldots+c_kv_k | c_1,\ldots,c_k \in  \mathbb{K}\right\}
@@ -1130,28 +1223,32 @@ Useremo il simbolo $ \left<v_1,\ldots,v_k \right>$ per indicade \underline{ogni 
 	      \end{itemize}
 \end{enumerate}
 
-\definizione{Base dello spazio vettoriale}{
+\begin{definizione}{Base dello spazio vettoriale}
 	Sia $V$ uno spazio vettoriale in $\mathbb{K}$. Un insieme di vettori  $v_n$ viene detto \underline{base }di $V$ se ogni elemento $v \in  V$ si può scrivere \underline{in modo unico} come combinazione lineare.
 	\[
 		v = x_1v_1 +\ldots n_nv_n = \sum_{i=1}^{n} x_iv_i
 	\]
 	Tutte le basi di uno spazio vettoriale $V$ hanno lo \underline{stesso} numero di elementi. Tale numero è detto \underline{dimensione} dello spazio vettoriale
 	\vskip3mm
-	I coefficienti $x_1 \ldots x_n$ della combinazione lineare si dicono \underline{cooerdinate di $V$ rispetto alla base} $\left\{ v_1\ldots v_n \right\} $}
-\definizione{Insieme generatore}{
+	I coefficienti $x_1 \ldots x_n$ della combinazione lineare si dicono \underline{cooerdinate di $V$ rispetto alla base} $\left\{ v_1\ldots v_n \right\} $
+\end{definizione}
+
+\begin{definizione}{Insieme generatore}
 	Un insieme di vettore $ v_1,\ldots,v_m$ è detto \underline{insieme generatore} di $V$ se ogni vettore $v$ di $V$ si può scrivere come combinazione lineare:
 	\[
 		x_1v_1+x_2v_2+\ldots+v_mv_m =  \sum_{i=1}^{n} x_iv_i
 	\]
 	la differenza rispetto ad una base è che un vettore $v \in  V$ può essere ottenuto tramite diverse coordinate
-}
-\definizione{Vettori linearmente indipendenti}{
+\end{definizione}
+
+\begin{definizione}{Vettori linearmente indipendenti}
 	Un insieme di vettori $v_1,\ldots, v_k$ è detto \underline{linearmente indipendente} se il vettore nullo si piò scrivere come combinazione lineare dei $v_i$ solo scegliendo coefficienti  \underline{tutti nulli}
 	\[
 		a_1v_1+a_2c_2+\ldots+ a_kv_k=0 \Leftrightarrow a_1\ldots a_k=0
 	\]
 	se i vettori non sono linearmente indipendenti questi si dicono \textit{linearmente dipendenti}
-}
+\end{definizione}
+
 OSS: un gruppo di vettori sono linearmente dipendenti se e solo se almeno uno di questi si può scrivere come combinazione lineare degli altri
 \vskip3mm
 Esempio: stabilisci se i seguenti vettori sono linearmente indipendenti:
@@ -1184,9 +1281,9 @@ risolvendo tramite Gauss-Jordan mi accorgo che il sistema ha infinite soluzioni 
 \]
 l'insieme è quindi dipendente con soluzioni: $\left( -a_3,2a_3,a_3 \right) $
 
-\teorema{Criterio affinche un generatore sia base}{
+\begin{teorema}{Criterio affinche un generatore sia base}
 	Un insieme $\left\{ v_1,\ldots,v_n \right\} $ di elementi di $V$ è una base di $V \Leftrightarrow $ s è un generatore di $V$ \underline{linearmente indipendente}
-}
+\end{teorema}
 OSS:
 \begin{itemize}
 	\item Nel piano due vettori sono LI se e solo se non appartengono alla stessa retta.
@@ -1197,9 +1294,9 @@ OSS:
 	      \]
 
 \end{itemize}
-\definizione{Gruppo finitamente generato}{
+\begin{definizione}{Gruppo finitamente generato}
 	Se $V$ è finitamente generato (esiste un numero finito di generatori ) $ \Rightarrow V$ ha una base
-}
+\end{definizione}
 Esempio: $V = \R\left[ x \right] \rightarrow $ \underline{non è finitamente generato}
 in quanto:
 \[
@@ -1228,12 +1325,13 @@ Vi è una relazione ben specifica fra \underline{rango} di una matrice e  \under
 \end{itemize}
 NB: di fatto la riduzione a scalini della matrice $ A $ consiste nell' eseguire operazioni di combinazione lineare fra le sue righe fino ad ottenere i vettori della sua base canonica. Risulta quindi evidente che il rango equivale alla dimensione dello spazio delle righe di $ A $
 
-\teorema{Rango matrice trasposta}{
+\begin{teorema}{Rango matrice trasposta}
 	Lo spazio delle righe e lo spazio delle colonne di $A$ hanno la stessa dimensione, ossia:
 	\[
 		rg\left( A \right)  = rg\left( A^{T} \right)
 	\]
-}
+\end{teorema}
+
 Implicazioni:
 \begin{itemize}
 	\item Immagino di avere k vettori $v_1,\ldots,v_k$ e di voler verificare quali di questi sono \textit{linearmente indipendenti}: ho \underline{2 metodi}:
@@ -1361,9 +1459,10 @@ $$
 $$
 forma una base di $\R^{4}$. Non è necessario ottenere una matrice ridotta per individuare le colonne indipendenti, è sufficiente una matrice a scalini
 
-\teorema{Teorema della base di $\R^{n}$}{
+\begin{teorema}{Teorema della base di $\R^n$}
 	Ogni base di $\R^{n}$ contiene \underline{esattamente} n elementi
-}
+\end{teorema}
+
 Dimostrazione
 \begin{itemize}
 	\item  $m$ vettori di $\R ^{n}$ se $m > n$ sono necessariemente \underline{linearmente dipendenti} allora \underline{una base non può conenere più di $n$ elementi} (sezione \ref{sub::proprietàbasi}, proposizione 1)
@@ -1394,18 +1493,19 @@ L'unione insiemistica di sottospazi non è sottospazio, basti pensare al seguent
 	\end{tikzpicture}
 \end{center}
 Se prendo due vettori sulle due rette mi rendo conto che la loro somma non ricade all'interno di nessuna delle due rette. Posso però definire una \underline{somma fra sottospazi}
-\definizione{Somma di sottospazi}{
+\begin{definizione}{Somma di sottospazi}
 	La somma di $V$ e $W$ è l'insieme
 	\[
 		V + W = \left\{ v \in  V | v = u + w, v \in V, w \in  W \right\}
 	\]
 	ossia la somma di ogni vettore in $W$ con ogni vettore di $V$
-}
-\formula{Formula di Grassmann}{
+\end{definizione}
+
+\begin{formula}{Formula di Grassmann}
 	\[
 		dim\left( V \right) + dim\left( W \right)  = dim\left( V \cap W \right) + dim\left( V + W \right)
 	\]
-}
+\end{formula}
 Esempio:
 Considero due spazi vettoriali:
 \[
@@ -1448,7 +1548,7 @@ La logica è la seguente:
 	      i
 \end{itemize}
 Introduciamo la base di Lagrange:
-\definizione{Base di langrange}{
+\begin{definizione}{Base di langrange}
 	La base di lagrange mi permette di trovare un polinomio $f_i\left( x \right) $ che valga \underline{1} sotto a $x_i$, mentre \underline{0} sotto ogni altra $x_1,\ldots,x_n$
 	\[
 		B = \left\{ f_1,\ldots,f_n \right\}
@@ -1456,7 +1556,7 @@ Introduciamo la base di Lagrange:
 	\[
 		f_i\left( x \right) = \prod_{j=1}^{n} \frac{x-x_j}{x_i - x_j} \quad  \text{ con } j \neq i
 	\]
-}
+\end{definizione}
 Nota che la base di lagrange $f_i\left( x \right) $ è un \underline{polinomio} che vale 0 in $x_j$ per $j=1,\ldots,n$ mentre vale 1 in $x_i$. Chiaramente quindi le basi di lagrange sono linearmente indipendenti e ci permettono di creare un polinomio che passi per tutti i punti indicati.
 \vskip3mm
 Esempio: dati tre punti $\left( 2,1 \right)  \left( 4,2 \right)  \left( 5,0 \right) $ si trovi un polinomio che passi per essi.
@@ -1515,13 +1615,13 @@ Perchè se $ \det\left( A \right) = 0 $ allora le colonne sono \underline{linear
 \end{itemize}
 I vettori $ \left( a,c \right)  $ e $ \left( c,d \right)  $ sono proporzionali se $ \det\left( A \right) =  0  $
 
-\definizione{Determinante}{
+\begin{definizione}{Determinante}
 	Sia $A \quad n \times n$. Il  \underline{determinante} di $A$  viene definito in maniera ricorsiva nel seguente modo:
 	\begin{itemize}
 		\item Se $n=1$, $\det\left[ a_{11} \right]  =a_{11}$
 		\item Se $n >1$ $\det\left( A \right) = \sum_{i=1}^{n} a_{i_1}a_{i_1}'$ dove $a_{i_1}'= \left( -1 \right) ^{i+1} \det \left( A_{i_1} \right) $. La matrice $A_{i_1}$ è ottenuta da $A$ toglienda la \textit{i-esima} riga e la \underline{prima} colonna
 	\end{itemize}
-}
+\end{definizione}
 NB: il calcolo del determinante ha complessità \underline{fattoriale}, quindi è possibile farlo solo su matrici molto piccole
 \vskip3mm
 \textbf{Esempio 1:}
@@ -1685,22 +1785,22 @@ dove $ E $ è la matrice delle operazioni elementari. Pensala nel modo seguente
 	\item Una matrice quadrata $ n\times n $ ridotta a scalini è una matrice triangolare alta. Se il suo rango è $ n $ allora \underline{non ho zeri sulla diagonale}, e qindi il determinante non è nullo. Se il rango è $ < n $, allora in determinante è nullo
 \end{itemize}
 \subsubsection*{Teoremi fondamentali}
-\teorema{Teorema di Binet}{
+\begin{teorema}{Teorema di Binet}
 	Siano $ A, B $ matrici di ordine $ n $. Vale la seguente uguaglianza
 	\[
 		\det \left( AB \right) = \det A \det B
 	\]
-}
+\end{teorema}
 A differenza della somma, il prodotto di matrici si comporta bene con il determinante. Occhio a non scrivere la stronzata seguente:
 \[
 	\det \left( A+B \right) = \det A + \det B
 \]
-\teorema{Corollario a Binet: matrice inversa}{
+\begin{teorema}{Corollario a Binet: matrice inversa}
 	Sia $ A $ una matrice \underline{invertibile}. Allora
 	\[
 		\det\left( A^{-1} \right) = \frac{1}{ \det A}
 	\]
-}
+\end{teorema}
 \label{corollariobinet}
 Dimostro facilmente tramite binet:
 \[
@@ -1711,12 +1811,12 @@ per il teorema di binet posso spezzare il prodotto matriciale:
 	\det \left( A^{-1}A \right)  = \det A^{-1} \cdot \det A = \det I_n = 1
 \]
 quindi necessariamente $ \det A^{-1} = \frac{1}{ \det A} $
-\teorema{Teorema di Laplace}{
-Sia $ A  $ una matrice di ordine $ n $. Posso calcolarne il determinante "\textit{sviluppando}" la matrice secondo ogni riga ed ogni colonna. Formalmente vale la seguente proprietà:
-\[
-	\sum_{i=1}^{n} a_{ij}a'_{ij}= \sum_{j=1}^{n} a_{ij}a'_{ij} = \det A
-\]
-}
+\begin{teorema}{Teorema di Laplace}
+	Sia $ A  $ una matrice di ordine $ n $. Posso calcolarne il determinante "\textit{sviluppando}" la matrice secondo ogni riga ed ogni colonna. Formalmente vale la seguente proprietà:
+	\[
+		\sum_{i=1}^{n} a_{ij}a'_{ij}= \sum_{j=1}^{n} a_{ij}a'_{ij} = \det A
+	\]
+\end{teorema}
 NB: intuitivamente, la matrice $ a'_{ij} $ è il cosiddetto \underline{cofattore} si $ a_{ij} $, definito così:
 \[
 	a'_{ij}= \left( -1 \right) ^{i+j} \det A_{ij}
@@ -1754,16 +1854,20 @@ sostituendo al posto dei versori le componenti di $ u $ ottengo il prodotto scal
 
 \subsection{Determinante e sistemi lineari}
 Posso sfruttare le proprietà del determinante per trovare le soluzioni di un sistema di $ n $ equazioni in $ n $ incognite. Innanzitutto bisogna tenere a mente che
-\textbox{Un sistema $ Ax = b $ ha 1 soluzione $ \Leftrightarrow rg \left( A \right) = n \Leftrightarrow \det A \neq 0$}
+
+\begin{center}
+	\tcbox{Un sistema $ Ax = b $ ha 1 soluzione $ \Leftrightarrow rg \left( A \right) = n \Leftrightarrow \det A \neq 0$}
+\end{center}
+
 ragionando nel seguente modo posso ricavare la regola di Cramer tramite il teorema di Binet
 
-\teorema{Regola di Cramer}{
+\begin{teorema}{Regola di Cramer}
 	Sia $ Ax = b $ un sistema lineare di $ n $ equazioni in $ n $ ingognite. Se $ Ax = b $ ammette una sola soluzione, questa può essere espressa \underline{in termini di determinante}:
 	\[
 		x_j = \frac{\det A_j \left( b \right) }{ \det A}
 	\]
 	dove la matrice $ A_j\left( b \right)  $ è ottenuta sostinuendo la colonna $ j $ di $ A $ con $ b $
-}
+\end{teorema}
 \label{Cramer}
 Dimostrazione:
 \begin{itemize}
@@ -1783,13 +1887,13 @@ Dimostrazione:
 
 \end{itemize}
 
-\teorema{Corollario a cramer}{
-Sia $ A \in  M_n\left( \mathbb{K} \right)  $ una matrice con $ \det \left( A \right) \neq 0 $ Allora:
-\[
-	A^{-1}= \frac{1}{ \det \left( A \right) }\left[ a'_{ij} \right] ^{T}
-\]
-dove $ a'_{ij} $ è la \underline{matrice dei cofattori}
-}
+\begin{teorema}{Corollario a cramer}
+	Sia $ A \in  M_n\left( \mathbb{K} \right)  $ una matrice con $ \det \left( A \right) \neq 0 $ Allora:
+	\[
+		A^{-1}= \frac{1}{ \det \left( A \right) }\left[ a'_{ij} \right] ^{T}
+	\]
+	dove $ a'_{ij} $ è la \underline{matrice dei cofattori}
+\end{teorema}
 NB: la matrice dei cofattori è una matrice che in indice $ i,j $ contiene lo scalare
 \[
 	\left( -1 \right) ^{i+j} \cdot \det a_{ij}
@@ -1832,12 +1936,12 @@ ossia lo sviluppo di Laplce del termine $ a_{ij} $ senza il coefficiente
 
 \section{Funzioni lineari}
 Ad ogni matrice possiamo associare una funzione che gode di una particolare proprietà: la \underline{linearità}
-\definizione{Funzione lineare associata ad una matrice}{
+\begin{definizione}{Funzione lineare associata ad una matrice}
 	Sia $ A \quad $ una matrice $ m \times n  $. Si può definire una funzione lineare dallo spazio di n-uple $ \mathbb{K}^{n} $ allo spazio di m-uple $ \mathbb{K}^{m} $ nel seguente modo:
 	\[
 		T_A \left( x \right) = Ax \quad \forall x \in  \mathbb{K} ^{n}
 	\]
-}
+\end{definizione}
 Queste funzioni godono di importantissime proprietà: sono infatti \underline{lineari}. Formalmente questo vuol dire che:
 \[
 	T_A \left( v_1 + v_2 \right) = T_A \left( v_1 \right) + T_A \left( v_2 \right)
@@ -1860,14 +1964,14 @@ Consideriamo una funzione $ T $ da $ V \to V' $ \underline{lineare}. Ragioniamo 
 	\item Se applico $ T_A $ ad un elemento della base $ \mathcal{B} $ posso ottenerlo tramite combinazione lineare di vettori del codominio $ V' $
 \end{itemize}
 \subsection{Esempi e definizioni}
-\definizione{Dominio, codominio, immagine}{
+\begin{definizione}{Dominio, codominio, immagine}
 	Sia $ T : V \to V'$ una funzione lineare (o applicazione , operatore, trasformazione lineare). Si definiscono
 	\begin{itemize}
 		\item Dominio $ \rightarrow V $
 		\item Codominio $ \to V' $
 		\item Immagine $ \rightarrow \left\{ v' \in  V' | v' = T\left( v \right)  \right\}  $ per almeno un $ v \in  V $
 	\end{itemize}
-}
+\end{definizione}
 \subsubsection*{Esempio 1: funzione lineare su retta}
 Sia $ A = \begin{bmatrix}
 		3 & -2 \\
@@ -1895,7 +1999,10 @@ Data una funzione $ T\left( x_1,x_2,x_3 \right)  = 3x_1 - x_3, 2x_1 - x_2 + x_3,
 	\end{bmatrix}
 \]
 \subsubsection*{Esempio 3: immagine e sottospazi vettoriali}
-\textbox{Lo spazio delle colonne di una matrice $ A $ corrisponde con l'immagine della sua funzione associata $ T_A $}
+\begin{center}
+	\tcbox{Lo spazio delle colonne di una matrice $ A $ corrisponde con l'immagine della sua funzione associata $ T_A $}
+\end{center}
+
 \begin{itemize}
 	\item Il prodotto matriciale di un vettore colonna $ b $ con una matrice $ A $ può essere espresso anche come combinazione lineare delle sue colonne con $ b $
 	      \[
@@ -1920,21 +2027,21 @@ Data una funzione $ T\left( x_1,x_2,x_3 \right)  = 3x_1 - x_3, 2x_1 - x_2 + x_3,
 	\item L'operatore di derivazione $D: \mathbb{R}[x] \rightarrow \mathbb{R}[x]$ è lineare.
 	\item L'operatore traccia $t r: M_n(\mathbb{R}) \rightarrow \mathbb{R}$ che ad una matrice quadrata $A$ associa la sua traccia $\operatorname{tr}(A)=\sum_{i=1}^n a_{i i}$ è lineare. È vero anche per l'operatore determinante?
 \end{itemize}
-\definizione{Nucleo di una funzione lineare}{
+\begin{definizione}{Nucleo di una funzione lineare}
 	Sia $  T: V \to V' $ una funzione lineare. Il nucleo di $ T $, indicato con $ N\left( T \right)  $ è l'insieme controimmagine del vettore nullo:
 	\[
 		N\left( T \right) = \left\{ v \in  V|T\left( v \right) =0 \right\}
 	\]
 	ossia l'insieme dei vettori di $ V $, ai quali applicando $ T $ si ottiene il vettore nullo
-}
+\end{definizione}
 NB: per trovare il nucleo di una matrice $ A $ basta risolvere il sistema lineare $ Ax=0 $. Quindi ottengo la seguente importante proprietà
 \subsection{Utili proprietà}
-\teorema{Proprietà nucleo + immagine}{
+\begin{teorema}{Proprietà nucleo + immagine}
 	Sia $ T $ una funzione lineare. Vale \underline{sempre} la seguente identità:
 	\[
 		\dim N\left( T_A \right)  + \dim I_m \left( T_A \right) = n
 	\]
-}
+\end{teorema}
 Dimostrazione
 \begin{itemize}
 	\item Lo spazio delle soluzioni di questo sistema ha dimensione $ n- rg\left( A \right)  $
@@ -1951,12 +2058,12 @@ NB: se dominio e codominio sono spazi vettoriali con dimensione uguale allora
 	T \text{ iniettiva } \Leftrightarrow T \text{ suriettiva }
 \]
 \subsubsection*{Iniettività di una funzione}
-\teorema{Iniettività di una funzione lineare}{
+\begin{teorema}{Iniettività di una funzione lineare}
 	Sia $  T $ una funzione lineare. Allora
 	\[
 		T \text{ è iniettiva } \Leftrightarrow N\left( t \right) = \left\{ 0 \right\}
 	\]
-}
+\end{teorema}
 Dimostrazione:
 \begin{enumerate}
 	\item Se $ T $ è iniettiva, allora il vettore nullo può avere un'unica immagine
@@ -1968,13 +2075,13 @@ Dimostrazione:
 	      \end{itemize}
 \end{enumerate}
 
-\teorema{Sottospazi e funzioni lineari}{
+\begin{teorema}{Sottospazi e funzioni lineari}
 	Sia $ T : V \to V'$ lineare. Allora
 	\begin{itemize}
 		\item $  N \left( T \right)  $ è un sottospazio vettoriale di $ V $
 		\item $ I_m \left( T \right)  $ è sottospazio vettoriale di $ V' $
 	\end{itemize}
-}
+\end{teorema}
 Dimostrazione 1:
 \begin{itemize}
 	\item Prendo due vettori $ v_1,v_2 \in N\left( T \right)  $e verifico che il sottospazio è chiuso rispetto alla somma e al prodotto, ossia che ogni combinazione lineare di ogni vettore nel nucleo di $ T $ è \underline{a sua volta nel nucleo} di $ T $
@@ -2001,21 +2108,21 @@ La \underline{inversa} di una funzione lineare è anchessa lineare
 \section{Matrici associate a funzioni lineari}
 Può spesso tornare utile partire da una funzione lineare e poterci associare una matrice. Così facendo basterà eseguire il prodotto matriciale fra ma matrice e il vettore per applicare la funzione al vettore stesso
 
-\definizione{Matrice associata ad una funzione lineare}{
-Sia $ T : V \to V'$ una funzione lineare. Siano $  \mathcal{B} = \left\{ u_1,\ldots,u_n \right\}  $ e $ \mathcal{C} = \left\{ v_1,\ldots,v_m \right\}  $ basi rispettivamente di $ V $ e $ V' $.
-\vskip3mm
-Indico con $ T_\mathcal{B}\left( v \right)  $ e $ T_C\left( v \right)  $ i vettori che contengono le coordinate di $ v $ secondo la base $ \mathcal{B} $ e $ \mathcal{C} $.
-\vskip3mm
-Posso associare una matrice $ A_\mathcal{B}^\mathcal{C}\left( T \right)  = \left[ a_{ij} \right]  \quad m \times n	$ tale che:
-\[
-	T\left(u_j\right)=a_{1 j} v_1+a_{2 j} v_2+\cdots+a_{m j} v_m \text{ per } j=1, \ldots, n
-\]
-ossia, se $ v \in V $ allora
-\[
-	T_\mathcal{C} \left( T\left( v \right) \right)  = AT_\mathcal{B}\left( v \right)
-\]
-esprimento una funzione lineare tramite \underline{prodotto matriciale}
-}
+\begin{definizione}{Matrice associata ad una funzione lineare}
+	Sia $ T : V \to V'$ una funzione lineare. Siano $  \mathcal{B} = \left\{ u_1,\ldots,u_n \right\}  $ e $ \mathcal{C} = \left\{ v_1,\ldots,v_m \right\}  $ basi rispettivamente di $ V $ e $ V' $.
+	\vskip3mm
+	Indico con $ T_\mathcal{B}\left( v \right)  $ e $ T_C\left( v \right)  $ i vettori che contengono le coordinate di $ v $ secondo la base $ \mathcal{B} $ e $ \mathcal{C} $.
+	\vskip3mm
+	Posso associare una matrice $ A_\mathcal{B}^\mathcal{C}\left( T \right)  = \left[ a_{ij} \right]  \quad m \times n	$ tale che:
+	\[
+		T\left(u_j\right)=a_{1 j} v_1+a_{2 j} v_2+\cdots+a_{m j} v_m \text{ per } j=1, \ldots, n
+	\]
+	ossia, se $ v \in V $ allora
+	\[
+		T_\mathcal{C} \left( T\left( v \right) \right)  = AT_\mathcal{B}\left( v \right)
+	\]
+	esprimento una funzione lineare tramite \underline{prodotto matriciale}
+\end{definizione}
 \label{Matrice associata}
 NB: se $ V = \mathbb{K}^{n} $ e $ V' = \mathbb{K}^{M} $ e $ B,\mathcal{C} $ sono basi canoniche, allora la matrice associata si indica come $ M\left( T \right)  $
 \vskip3mm
@@ -2121,14 +2228,14 @@ Possiamo sfruttare il fatto che ad ogni funzione lineare è possibile associare 
 	\item Considero funzione lineare che non fa un cazzo (preso in input $ v $ restituisce $ v $)
 	\item Creo matrice associata a tale funzione $ M_\mathcal{B}^{\mathcal{B}'}\left( id_V \right)  $
 \end{itemize}
-\definizione{Matrice di transizione}{
-Siano $  \mathcal{B} = \left\{ v_1,\ldots,v_n \right\} $ $ \mathcal{B}' = \left\{ v'_1,\ldots, v'_n \right\}  $ basi di $ V $
-Si dice matrice di transizione da $  \mathcal{B} $ a $ \mathcal{B}' $ la matrice inveribile $ P=\left[ p_{ij} \right]  $ di ordine $ n $ avente come colonne le coordinate dei vettori $  v_j $ della base $ \mathcal{B} $ rispetto alla base $ \mathcal{B}' $
-\[
-	v_j=\sum_i p_{i j} v_i^{\prime} \quad(j=1, \ldots, n)
-\]
-ossia creo una matrice associata ad una funzione lineare che non fa nulla
-}
+\begin{definizione}{Matrice di transizione}
+	Siano $  \mathcal{B} = \left\{ v_1,\ldots,v_n \right\} $ $ \mathcal{B}' = \left\{ v'_1,\ldots, v'_n \right\}  $ basi di $ V $
+	Si dice matrice di transizione da $  \mathcal{B} $ a $ \mathcal{B}' $ la matrice inveribile $ P=\left[ p_{ij} \right]  $ di ordine $ n $ avente come colonne le coordinate dei vettori $  v_j $ della base $ \mathcal{B} $ rispetto alla base $ \mathcal{B}' $
+	\[
+		v_j=\sum_i p_{i j} v_i^{\prime} \quad(j=1, \ldots, n)
+	\]
+	ossia creo una matrice associata ad una funzione lineare che non fa nulla
+\end{definizione}
 NB: per calcolare le coordinate di un vettore secondo una data base $ \mathcal{B} $ devo risolvere un sistema $ Ax=b $ dove $ A $ è una matrice avente per colonne i vettori di $ \mathcal{B}  = \left\{ u_1,\ldots,u_n \right\} $ e $ b $ è il vettore che devo ottenere.
 \vskip3mm
 Per eseguira tale operazione su più vettori $ v_1,\ldots,v_n $ in maniera rapida, posso \underline{affiancarli} a destra nella matrice $ A $
@@ -2140,13 +2247,13 @@ Per eseguira tale operazione su più vettori $ v_1,\ldots,v_n $ in maniera rapid
 \]
 \subsection{Matrici simili}
 Posso "elaborare" una funzione che anzichè "prendere in input e dare in output" delle coordinate da una base $ \mathcal{B} $, prende in input/output coordinate della base $ \mathcal{B}' $
-\teorema{Cambiamento base funzione}{
+\begin{teorema}{Cambiamento base funzione}
 	Sia $  T : V \to V $ funzione \underline{lineare}. Siano $ \mathcal{B} = \left\{ u_1,\ldots u_n \right\} $ e $ \mathcal{B}' = \left\{ v_1,\ldots,v_n \right\}  $ basi di $ V $. Allora vale la seguente relazione:
 	\[
 		M_{\mathcal{B}'} \left( T \right) = P M_{\mathcal{B}} \left( T \right) P^{-1}
 	\]
 	dove $ P $ è la matrice di transizione fra la base $ \mathcal{B} $ e $ \mathcal{B}' $
-}
+\end{teorema}
 Dimostrazione:
 \begin{itemize}
 	\item Ricordiamo che il prodotto matriciale indica la composizione di funzioni
@@ -2155,12 +2262,12 @@ Dimostrazione:
 	\item Gli applico la funzione $ M_{\mathcal{B}}\left( T \right)  $, che mi restituisce un vettore secondo la base $ \mathcal{B} $
 	\item Converto quest'ultimo vettore, moltiplicandolo per $ P $ (a sinistra)
 \end{itemize}
-\teorema{Matrici simili}{
+\begin{teorema}{Matrici simili}
 	Siano $ A,B \in  M_n\left( \mathbb{K} \right)  $. $ A  $ si sice \underline{simile} a $ B $ se esiste $ P \in  M_n \left( \mathbb{K} \right)  $ \underline{invertibile} per la quale vale la seguente relazione:
 	\[
 		A = PBP^{-1}
 	\]
-}
+\end{teorema}
 NB: valgono le seguenti proprietà utili:
 \begin{itemize}
 	\item $ \det \left( PAP^{-1} \right) = \det \left( P \right) \det \left( A \right) \det \left( P^{-1} \right) = \det  \left( A \right)  $
@@ -2242,23 +2349,23 @@ quindi la matrice associata è:
 
 \section{Autovalori e autovettori}
 Partiamo osservando che se ho una matrice diagonale ()
-\definizione{Autovalore e autovettore}{
+\begin{definizione}{Autovalore e autovettore}
 	Sia $ A \quad n \times n $. Un vettore \underline{non nullo} $ x \in  \mathbb{K}^{n} $ è detto \underline{autovettore} di $ A $ se esiste uno scalare $ \lambda \in \mathbb{K} $ tale che
 	\[
 		Ax = \lambda  x
 	\]
 	$ \lambda  $ è detto \underline{autovalore} di $ A $ associato a $ x $
-}
+\end{definizione}
 Lo stesso ragionamento può essere esteso a qualsiasi funzione lineare
 \vskip3mm
 Gli autovettori sono una figata in quanto "eistono" in natura (se una matrice rappresenta un fenomeno fisico, gli autovettori hanno significato). Ad esempio in una matrice degli sforzi gli autovettori rappresentano i punti di maggiore tensione
 
-\teorema{Matrice diagonale autovettori}{
+\begin{teorema}{Matrice diagonale autovettori}
 	Sia $ T : V \to V $ un endomorfismo. Allora:
 	\begin{center}
 		$ T $ ha una matrice diagonale associata $ \Leftrightarrow $ $ V $ ha una base associata formata da autovettori di $ T $
 	\end{center}
-}
+\end{teorema}
 \label{teo:diagonalizzabilità}
 Dimostrazione $ \Leftarrow $. Se ho una base formata da autovettori allora esiste una matrice diagonale associata
 \begin{itemize}
@@ -2284,12 +2391,12 @@ Dimostrazione $ \Rightarrow $. Se esiste una matrice diagonale associata allora 
 	\item Ciò significa che $ T\left( v_i \right) = 0 v_1 + \ldots + \lambda_1 v_i + \ldots+ 0 v_n =\lambda _1 v_i$ ossia che $ v_i $ è un \underline{autovettore} (per ogni $ i $)
 \end{itemize}
 
-\definizione{Diagonalizzabilità}{
+\begin{definizione}{Diagonalizzabilità}
 	$ T $ si dice \underline{diagonalizzabile} se esiste una matrice associata diagonale:
 	\[
 		\exists M_B \left( T \right) \text{ diagonale }
 	\]
-}
+\end{definizione}
 NB: questo equivale a dire che $ M_{ \mathcal{B}}(T) $ è diagonalizzabile se esiste una matrice simile diagonale, ossia:
 \[
 	D = P M_{ \mathcal{B}}\left( T \right) P^{-1}
@@ -2303,13 +2410,13 @@ essendo il prodotto matriciale associativo, tutte le $ PP^{-1} $ in mezzo si eli
 	A^{k}= P D^{k}P^{-1}
 \]
 \subsection{Autospazio}
-\definizione{Autospazio}{
+\begin{definizione}{Autospazio}
 	Sia $ T : V \to V $ un endomorfismo. Si dice \underline{autospazio} di $ T $ relativo all'autovalore $ \lambda  $ lo spazio vettoriale:
 	\[
 		E\left( \lambda  \right) = N\left( T- \lambda I_{n} \right) = \left\{ v \in  V| T\left( v \right) = \lambda  v \right\}
 	\]
 	ossia l'insieme degli autovettori di $ V $ più il vettore nullo (sempre presente)
-}
+\end{definizione}
 NB: il medesimo discorso può essere fatto per una matrice associata ad una funzione lineare.
 \subsubsection*{Determinare se un $ \lambda  $ è autovalore}
 Noto che se $ T : V \to V $ è un endomorfismo di uno spazio $ n $ dimensionale posso identificare l'insieme dei suoi autovettori tramite un sistema lineare:
@@ -2347,19 +2454,19 @@ NB: per trovare gli autovalori di una funzione lineare potrei studiare il sistem
 	\end{bmatrix}
 \]
 \subsection{Polinomi caratteristici}
-\definizione{Polinomio caratteristico}{
+\begin{definizione}{Polinomio caratteristico}
 	Sia $ A $ una matrice $ n \times n $ e $ \lambda  $ un autovalore. Il polinomio di grado $ n $ nella variabile $ \lambda  $ è detto \underline{polinomio caratteristico} della matrice e si denota con:
 	\[
 		p_A\left( \lambda  \right) = \det \left( A- \lambda I_n \right)
 	\]
 	lo stesso discorso può essere fatto anche per un qualsiasi \underline{endomorfismo} $ T $
-}
-\teorema{Caratteristiche matrice $ Ax - \lambda  I_n $}{
+\end{definizione}
+\begin{teorema}{Caratteristiche matrice $ Ax - \lambda  I_n $}
 	\begin{itemize}
 		\item Proprietà 1: uno scalare $ \lambda_0  $ è \underline{autovalore} di $ A $ se $ \lambda_0 $ è radice del polinomio caratteristico $ p_A \left( \lambda  \right)  $
 		\item Proprietà 2: l'autospazio $ E\left( \lambda _0 \right)  $ ha dimensione $ n- rg \left( A- \lambda _0 I_n \right)  $
 	\end{itemize}
-}
+\end{teorema}
 Dimostrazione:
 \begin{itemize}
 	\item Proprietà 1:
@@ -2374,10 +2481,10 @@ Dimostrazione:
 		      \item La nullità di tale sistema è uguale a $ n-rg\left( A- \lambda_0 I_n \right)  $
 	      \end{itemize}
 \end{itemize}
-\definizione{Molteplicità algebrica}{
+\begin{definizione}{Molteplicità algebrica}
 	Data una matrice $ A $ si dice \underline{molteplicità algebrica} la molteplicità della radice $ \lambda_0 $ all'interno del polinomio caratteristico
-}
-\definizione{Molteplicità geometrica}{
+\end{definizione}
+\begin{definizione}{Molteplicità geometrica}
 	Data una matrice $ A $ si dice \underline{molteplicità geometrica} la dimensione dell'autospazio $ E\left( \lambda_0 \right)  $:
 	\[
 		m_{geo}\left( \lambda_0 \right) = n - rg \left( A- \lambda_0 I_n \right)
@@ -2386,7 +2493,7 @@ Dimostrazione:
 	\[
 		m_{alg}\left( \lambda_0 \right) \ge m_{geo}\left( \lambda_0 \right) \ge 1
 	\]
-}
+\end{definizione}
 \subsubsection*{Esempio 1}
 La matrice reale $ A= \begin{bmatrix}
 		0  & -3 & -1 \\
@@ -2495,9 +2602,9 @@ Posso verificare costruendo la matrice associata alla funzione $ T $ secondo la 
 		-4 & -6 & -70 \\
 	\end{bmatrix}
 \]
-\teorema{Indipendenza autovettori}{
-Se prendiamo $ n $ autovettori $ v_1,\ldots,v_{n} $ relativi a $ n $ autovalori distinti $ \lambda_1,\ldots, \lambda_n $ essi sono linearmente indipendenti.
-}
+\begin{teorema}{Indipendenza autovettori}
+	Se prendiamo $ n $ autovettori $ v_1,\ldots,v_{n} $ relativi a $ n $ autovalori distinti $ \lambda_1,\ldots, \lambda_n $ essi sono linearmente indipendenti.
+\end{teorema}
 \label{teo:indipendenzaAutovettori}
 \textbf{Dimostrazione}: supponiamo di avere solo 2 autospazi
 \begin{itemize}
@@ -2507,9 +2614,9 @@ Se prendiamo $ n $ autovettori $ v_1,\ldots,v_{n} $ relativi a $ n $ autovalori 
 	\item Ciò tuttavia è assurdo: visto che l'autovettore $ v \in A	$ è relativo all'autovalore $ \lambda_a $. Tuttavia questo appartiene all'insieme $ B $. L'unica soluzione è quindi che $ \lambda_a $ e $ \lambda_b $ siano uguali
 \end{itemize}
 
-\teorema{Unione di autospazi}{
+\begin{teorema}{Unione di autospazi}
 	L'unione di basi di autospazi distinti è un insieme \underline{linearmente indipendente}
-}
+\end{teorema}
 \label{teo:unioneAutospazi}
 \textbf{Dimostrazione}:
 \begin{itemize}
@@ -2517,12 +2624,12 @@ Se prendiamo $ n $ autovettori $ v_1,\ldots,v_{n} $ relativi a $ n $ autovalori 
 	\item Gli autovettori che costituiscono la base di un autospazio sono necessariamente \underline{linearmente indipendenti}
 	\item Ho insiemi di elemti linearmente indipendenti in cui ogni elemento è linearmente indipendente con ogni altro elementi di ogni altro insieme. Per questo l'insieme è tutto \underline{linearmente indipendente}
 \end{itemize}
-\teorema{Teorema di diagonalizabilità}{
+\begin{teorema}{Teorema di diagonalizabilità}
 	Sia $ T: V \to V $ un endomorfismo. Siano $ \lambda_1,\ldots, \lambda_h $ gli autovalori distinti di $ T $. Allora
 	\[
 		T  \text{ è \underline{diagonalizzabile} } \Leftrightarrow \sum_{i=1}^{h} m_{geo}\left( \lambda_i \right) = \sum_{i=1}^{h} \dim E \left( \lambda_i \right) =n = \dim V
 	\]
-}
+\end{teorema}
 \textbf{Dimostrazione} $ \Rightarrow $ : se $ T $ è diagonalizzabile $ \Rightarrow $ la somma delle molteplicità geometriche è uguale a $ \dim V $
 \begin{itemize}
 	\item  Se un endomorfismo è diagonalizzabile, secondo una data base $ \mathcal{B} $ la sua matrice associata e la sua matrice $ A - I_n \lambda  $ avranno rispettivamente forma:
@@ -2558,18 +2665,22 @@ NB: se il polinomio caratteristico ha tutte le sue radici nel campo $ \mathbb{K}
 \]
 \section{Basi ortonormali e teorema spettrale}
 Quando si studiano problemi che riguardano lunghezze di vettori, ortogonalità o angoli è comodo utilizzare delle basi di tipo particolare
-\definizione{Base ortonormale}{
+
+\begin{definizione}{Base ortonormale}
 	Una base $ \mathcal{B}= \left\{ u_1,\ldots,u_m \right\}  $ di un sottospazio $ U $ di $ \R^{n} $ è una \underline{base ortonormale} di $ U $ se
 	\[
 		u_i \cdot u_j = 0 \text{ per } i \neq j \quad \text{ e } \quad  u_i \cdot u_j = 1 \text{ per } i=1,\ldots,m
 	\]
-}
+\end{definizione}
+
 NB: le basi canoniche di $ \R^{n} $ sono ortonormali
 \vskip3mm
 Vi è una proprietà importante:
-\bigbox{
+\begin{tcolorbox}
 	Se $\mathcal{B}=\left\{u_1, \ldots , u_m\right\}$ è una base ortonormale di $U$, le coordinate $x_1, \ldots, x_m$ di un vettore $v \in U$ rispetto a $\mathcal{B}$ si ottengono mediante il prodotto scalare
-}
+
+\end{tcolorbox}
+
 \[
 	x_j=v \cdot u_j, \quad j=1, \ldots, m .
 \]
@@ -2655,12 +2766,14 @@ Nota che la matrice di transizione $ M_{ \mathcal{B}}^{ \mathcal{E}} \left( Id \
 	P^{T} P = I_n
 \]
 da questa caratteristica si ricava la definizione di \underline{matrice ortogonale}
-\definizione{Matrice ortogonale}{
+
+\begin{definizione}{Matrice ortogonale}
 	Una matrice quadrata $ P \in  M_n \left( \R \right)  $ è detta \underline{ortogonale} se $ P^{-T} P = I_n $
-}
-\teorema{Prerequisito 1 teorema spettrale}{
+\end{definizione}
+
+\begin{teorema}{Prerequisito 1 teorema spettrale}
 	Sia $ A $ una matrice reale \underline{simemtrica} $ n \times n $. Allora $ A $ ha $ n $ autovalori reali, contati con la loro \underline{molteplicità algebrica}
-}
+\end{teorema}
 Nota che
 \label{teo:prerequisitoSpettrale}
 \textbf{Dimostrazione}: l'idea generale è quella di ottenere due identità, e confrontarle a loro volta
@@ -2726,13 +2839,13 @@ il prodotto di un numero complesso con il suo coniugato è sempre diverso da 0 s
 \]
 quindi visto che per ipotesi $ x \neq 0 $ anche la quantità $ \overline{x}^{T}x \neq 0$
 
-\teorema{Teorema spettrale}{
+\begin{teorema}{Teorema spettrale}
 	Sia $ A  $ una matrice reale simmetrica $ n\times n $. Allora
 	\[
 		A \text{ è \underline{diagonalizzabile}}
 	\]
 	Esiste una base \underline{ortonormale} di $ \R^{n} $costituita da autovettori di $ A $, cioè esiste una matrice ortogonale di $ P $ tale che $ P^{-1}A P = D$ sia \underline{diagonale}
-}
+\end{teorema}
 \textbf{Dimostrazione}: la dimostrazione procede per induzione
 \begin{itemize}
 	\item Caso base: se $ n = 1 $ chiaramente l'ipotesi è verificata. Qualsiasi base costituita da un vettore con norma 1 costituisce una base ortonormale
@@ -2751,4 +2864,5 @@ quindi visto che per ipotesi $ x \neq 0 $ anche la quantità $ \overline{x}^{T}x
 	\item Ho finito la dimostrazione: se la tesi vale per $ n-1 $ allora vale anche per $ n $. Visto che è vera per $ n=1 $, allora deve essere vera per ogni $ n $
 \end{itemize}
 NB: se una matrice $ A $ è simmetrica, so per certo che \underline{vettori appartenenti ad autospazi relativi ad autovalori differenti, sono sempre ortogonali}
+
 \end{document}
