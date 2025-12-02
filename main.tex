@@ -1,12 +1,7 @@
 %&../.preamble
-
-\endofdump
+\externalize{../.preamble}
 
 \usepackage{nicematrix}
-
-\usetikzlibrary{external}
-\tikzset{external/system call={pdflatex --shell-escape --fmt=../.preamble --halt-on-error -jobname "\image" "\endofdump\texsource"}}
-\tikzexternalize[prefix=tikz/]
 
 \title{Geometria e algebra lineare}
 \author{Mattia Marini}
